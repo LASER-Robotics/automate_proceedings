@@ -1,18 +1,3 @@
-"""
-Article ID Matcher (Script 3)
-=============================
-Author: LASER Laboratory (Adapted)
-Description: Scans a folder of PDFs, extracts their titles, and matches them 
-against the official copyright database to retrieve the ARTICLE IDENTIFIER.
-
-Key Features:
-- Lean Extraction: Only parses the PDF for the title using font-size heuristics.
-- Smashed Matching: Agnostic to spacing and PDF encoding errors.
-- Duplicate Handling: Always fetches the latest (lowest) ID in the spreadsheet.
-- Occurrence Counter: Adds a 'MATCH COUNT' column for duplicate tracking.
-- Smart CLI: Requires explicit arguments or displays a helpful usage example.
-"""
-
 import argparse
 import difflib
 import re
