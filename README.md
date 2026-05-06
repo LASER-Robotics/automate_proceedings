@@ -1,4 +1,6 @@
-# automate_proceedings_ieee
+# automate_proceedings
+
+This repo contains a bundle of resources for preparing the proceedings of an IEEE conference.
 
 ## Compliance Check
 
