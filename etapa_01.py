@@ -4,6 +4,7 @@ from pathlib import Path
 import pandas as pd
 import csv
 from compliance_check import check_pdf_creator
+from pdf_metadata_extractor import process_pdf
 from scripts.contagem_de_paginas import count_page
 from scripts.ieee_string_copyright import search_text
 
@@ -27,12 +28,14 @@ def processar():
 
     with open("dados_dos_artigos.csv", mode="w", newline="", encoding="utf-8") as f_csv:
         writer = csv.writer(f_csv)
-        writer.writerow(["id", "pdf", "titulo_artigo", "paginas", "pagina_inicial", "pagina_final", "string_encontrada", "ieee_complace"])
+        writer.writerow(["id", "pdf", "titulo_artigo", "autores_artigo", "paginas", "pagina_inicial", "pagina_final", "copyright", "ieee_complace"])
 
         for idx, f in enumerate(db, start=1):
             name = f"{f[0]:03d}.pdf"
             
             caminho = f"{PATH_1}{name}"
+            folder_obj = Path(caminho)
+            extrator = process_pdf(folder_obj)
 
             pages = count_page(caminho)
             text_found = search_text(caminho)
@@ -44,7 +47,7 @@ def processar():
             count += pages
             pagina_final = count - 1
 
-            writer.writerow([idx, name, titulo, pages, pagina_inicial, pagina_final, text_found, ieee_complance_check])
+            writer.writerow([idx, name, titulo, extrator["pdf_authors"], pages, pagina_inicial, pagina_final, text_found, ieee_complance_check])
     print(f"csv dados_dos_artigos.csv criado com sucesso!")
 
 
