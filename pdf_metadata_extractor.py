@@ -1,12 +1,13 @@
 """
 Usage:
-    python3 pdf_metadata_extractor.py
-    python3 pdf_metadata_extractor.py --folder "path/to/pdfs" --output extracted_articles.xlsx
+    python script1_extrair_pdf.py
+    python script1_extrair_pdf.py --folder "path/to/pdfs" --output extracted_articles.xlsx
 """
 
 import re
 import math
 import argparse
+import unicodedata
 from pathlib import Path
 
 import pdfplumber
@@ -583,6 +584,91 @@ def _find_authors_start(lines: list, limit: int) -> int | None:
 # Core PDF Processing Pipeline
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# Encoding Repair — fixes broken accent sequences produced by PDF extractors
+# ---------------------------------------------------------------------------
+
+_DOTLESS_I = "\u0131"   # ı  Turkish dotless-i, appears before combining accent in some PDFs
+
+# Pass 1: letter BEFORE the modifier receives the accent
+#   Examples: Fa´bio → Fábio,  Joa˜o → João,  Correˆa → Corrêa
+_ENCODING_ANTES: dict[tuple[str, str], str] = {
+    ("a", "´"): "á", ("e", "´"): "é", ("o", "´"): "ó", ("u", "´"): "ú",
+    ("A", "´"): "Á", ("E", "´"): "É", ("O", "´"): "Ó", ("U", "´"): "Ú",
+    ("a", "˜"): "ã", ("o", "˜"): "õ", ("n", "˜"): "ñ",
+    ("A", "˜"): "Ã", ("O", "˜"): "Õ", ("N", "˜"): "Ñ",
+    ("e", "ˆ"): "ê", ("a", "ˆ"): "â", ("o", "ˆ"): "ô",
+    ("E", "ˆ"): "Ê", ("A", "ˆ"): "Â", ("O", "ˆ"): "Ô",
+    ("c", "¸"): "ç", ("C", "¸"): "Ç",
+}
+
+# Pass 2: modifier BEFORE the letter (residuals after Pass 1)
+#   Examples: ´ı → í,  ˆa → â
+_ENCODING_DEPOIS: dict[str, dict[str, str]] = {
+    "´": {"a": "á", "e": "é", "i": "í", "o": "ó", "u": "ú",
+          "A": "Á", "E": "É", "I": "Í", "O": "Ó", "U": "Ú"},
+    "˜": {"a": "ã", "o": "õ", "n": "ñ", "A": "Ã", "O": "Õ"},
+    "ˆ": {"a": "â", "e": "ê", "o": "ô", "n": "n",
+          "A": "Â", "E": "Ê", "O": "Ô"},
+    "¸": {"c": "ç", "C": "Ç"},
+}
+_MODS = set("´˜ˆ¸")
+
+
+def fix_pdf_encoding(text: str) -> str:
+    """
+    Repairs broken accent sequences produced by PDF text extractors.
+
+    PDF libraries sometimes place the accent modifier character either before
+    or after the base letter instead of using the correct pre-composed Unicode
+    form.  Three patterns are handled:
+
+    1. Vowel/consonant + modifier  → accented form   (Fa´bio → Fábio)
+    2. Modifier + dotless-i        → í               (´ı → í)
+    3. Modifier + following letter → accented form   (residuals, e.g. ˆa → â)
+    """
+    t = text
+
+    # Phase 0: dotless-i with preceding acute accent
+    t = t.replace("´" + _DOTLESS_I, "í")
+
+    # Phase 1: letter preceding modifier receives the accent
+    chars = list(t)
+    out: list[str] = []
+    i = 0
+    while i < len(chars):
+        ch = chars[i]
+        nxt = chars[i + 1] if i + 1 < len(chars) else ""
+        if nxt in _MODS and (ch, nxt) in _ENCODING_ANTES:
+            out.append(_ENCODING_ANTES[(ch, nxt)])
+            i += 2
+        else:
+            out.append(ch)
+            i += 1
+    t = "".join(out)
+
+    # Phase 2: modifier preceding letter (residuals not consumed by Phase 1)
+    for mod, mapping in _ENCODING_DEPOIS.items():
+        t = re.sub(
+            re.escape(mod) + r"(.)",
+            lambda m, mp=mapping: mp.get(m.group(1), m.group(1)),
+            t,
+        )
+
+    # Phase 3: remove stray modifier characters and dotless-i
+    t = re.sub(r"[´˜ˆ¸`¨\u0131]", "", t)
+    return t
+
+
+def _clean_authors(authors: str) -> str:
+    """Applies encoding repair and whitespace normalisation to an author string."""
+    if not authors or authors.startswith("[ERROR"):
+        return authors
+    # Repair broken accents, then collapse any double-spaces left behind
+    fixed = fix_pdf_encoding(authors)
+    return re.sub(r"\s{2,}", " ", fixed).strip()
+
+
 def process_pdf(pdf_path: Path) -> dict:
     title, authors = extract_by_font_and_position(pdf_path)
 
@@ -599,6 +685,8 @@ def process_pdf(pdf_path: Path) -> dict:
 
     if title:
         title = _clean_title(title)
+    if authors:
+        authors = _clean_authors(authors)
 
     return {
         "file_id":      pdf_path.name,
