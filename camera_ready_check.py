@@ -3,7 +3,7 @@ from PyPDF2 import PdfReader
 from pathlib import Path
 import pandas as pd
 import csv
-from compliance_check import check_pdf_creator
+from pdfexpress_compliance_check import check_pdf_creator
 from pdf_metadata_extractor import process_pdf
 from scripts.contagem_de_paginas import count_page
 from scripts.ieee_string_copyright import search_text
@@ -20,7 +20,7 @@ def processar():
     files = [f.name for f in folder.iterdir() if f.is_file()]
     files = sorted(files)
 
-    with open("dados_dos_artigos.csv", mode="w", newline="", encoding="utf-8") as f_csv:
+    with open("camera_ready_report.csv", mode="w", newline="", encoding="utf-8") as f_csv:
         writer = csv.writer(f_csv)
         writer.writerow(["cmt_id", "title_pdf", "authors_pdf", "#_pages", "copyright", "ieee_compliace", "#_first_page", "#_last_page"])
 
