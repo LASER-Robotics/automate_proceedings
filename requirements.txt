@@ -3,3 +3,4 @@ openpyxl
 PyPDF2
 reportlab
 pdfplumber
+pypdf
