@@ -1,7 +1,7 @@
 """
 Usage:
-    python3 compliance_validator.py
-    python3 compliance_validator --extracted extracted_articles.xlsx --copyright SearchCopyright.xlsx
+    python3 ecf_compliance_check.py
+    python3 ecf_compliance_check.py --extracted extracted_articles.xlsx --copyright SearchCopyright.xlsx
 """
 import argparse
 import difflib
@@ -205,12 +205,12 @@ def save_report(data, path):
 # ---------------------------------------------------------------------------
 
 def run_pipeline(extracted_xlsx, copyright_xlsx, output_xlsx):
-    df_ext = pd.read_excel(extracted_xlsx)
+    df_ext = pd.read_csv(extracted_xlsx)
     df_cpy = pd.read_excel(copyright_xlsx)
     
     results = []
     for _, row in df_ext.iterrows():
-        t_pdf, a_pdf = str(row.get("ARTICLE TITLE", "")), str(row.get("AUTHORS", ""))
+        t_pdf, a_pdf = str(row.get("title_pdf", "")), str(row.get("authors_pdf", ""))
         if not t_pdf.strip(): continue
 
         # Match Article Titles
@@ -230,7 +230,7 @@ def run_pipeline(extracted_xlsx, copyright_xlsx, output_xlsx):
             else: action = "NO" if (diag == "OK" and s_title >= 75) else "YES"
             
             results.append({
-                "file": row["FILE ID"], "id": match_row.get("ARTICLE IDENTIFIER", ""),
+                "file": row["cmt_id"], "id": match_row.get("ARTICLE IDENTIFIER", ""),
                 "action": action, "t_pdf": t_pdf, "t_form": match_row["ARTICLE TITLE"],
                 "s_title": s_title, "a_pdf": a_pdf, "a_form": match_row["AUTHORS"],
                 "s_auth": s_auth, "diag": diag
