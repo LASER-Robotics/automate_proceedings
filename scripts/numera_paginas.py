@@ -9,18 +9,22 @@ from pathlib import Path
 # Configs
 PATH_2 = "./02 - PDF Artigos Programacao/"
 PATH_3 = "./05 - PDF Artigos Programacao enumerados/"
-MUMB_CSV = "./resultado.csv"
+MUMB_CSV = "./dados_dos_artigos.csv"
+
+count = 0
 
 from reportlab.pdfbase.pdfmetrics import stringWidth
 
 def create_overlay(num_pages):
     packet = BytesIO()
     can = canvas.Canvas(packet)
+    global count
 
     largura_pagina = 605 #tamanho da a4 + 10
 
     for i in range(num_pages):
-        texto = f"{i+1}"
+        count += 1
+        texto = f"{count}"
         font_size = 10
 
         can.setFont("Helvetica", font_size)
