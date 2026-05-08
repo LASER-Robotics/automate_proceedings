@@ -23,6 +23,8 @@ from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple
 
 from reportlab.lib.pagesizes import A4
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.pagesizes import legal
 from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen import canvas
 from reportlab.lib.utils import simpleSplit
@@ -32,7 +34,7 @@ from reportlab.lib.utils import simpleSplit
 # Page geometry
 # ---------------------------------------------------------------------------
 
-PAGE_W, PAGE_H = A4
+PAGE_W, PAGE_H = letter
 
 LEFT_MARGIN   = 56
 TOP_MARGIN    = 48
@@ -226,10 +228,12 @@ def load_page_numbers(path: Path) -> Dict[int, str]:
     pages: Dict[int, str] = {}
     with path.open("r", encoding="utf-8-sig", newline="") as f:
         for row in csv.DictReader(f):
-            pagina = row.get("pagina_inicial", "").strip()
+            pagina = row.get("#_first_page", "").strip()
+            print(pagina)
             try:
-                pages[int(Path(row.get("pdf", "")).stem)] = pagina
+                pages[int(Path(row.get("cmt_id", "")).stem)] = pagina
             except ValueError:
+                print("error")
                 continue
     return pages
 
@@ -483,7 +487,7 @@ def render_pdf(sessions: List[SessionBlock], output_path: Path) -> None:
     if not sessions:
         raise ValueError("No sessions to render.")
 
-    c = canvas.Canvas(str(output_path), pagesize=A4)
+    c = canvas.Canvas(str(output_path), pagesize=letter)
     c.setTitle("CROS 2026 - Table of Contents")
     c.setSubject("Generated from CSV")
     c.setCreator("ReportLab")
