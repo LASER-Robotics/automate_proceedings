@@ -3,7 +3,7 @@
 Generate a CROS-style Table of Contents PDF from three CSV sources.
 
 Usage:
-    python create_table_contents.py <sessions.csv> <compliance.csv> <results.csv> <output.pdf>
+    python create_table_contents.py <sessions.csv> <compliance.csv> <papers_data.csv> <output.pdf>
 
 Arguments:
     sessions.csv   - Session schedule: defines session groupings and paper IDs.
@@ -539,7 +539,7 @@ def render_pdf(sessions: List[SessionBlock], output_path: Path) -> None:
 def main(argv: Sequence[str]) -> int:
     if len(argv) != 5:
         print(f"Usage: {Path(argv[0]).name} "
-              "<sessions.csv> <compliance.csv> <results.csv> <output.pdf>")
+              "<sessions.csv> <compliance.csv> <papers_data.csv> <output.pdf>")
         return 1
 
     sessions_path   = Path(argv[1]).expanduser().resolve()

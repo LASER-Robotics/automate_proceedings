@@ -1,0 +1,174 @@
+CROS 2026 — Programação Técnica — Terça-Feira 28/04/26,,,
+"S28M1  |  Terça - 08:30 as 10:30 - Sala 1:  Multi-robot Systems I, Robotic Swarms.                                                                      Chair: Douglas Macharet",,,
+Sessão,Paper ID,Título,Autores
+S28M1  ,52,Communication Backbone Deployment with Connectivity Maintenance,"Santos, Leonardo; Ribeiro, Caio; Macharet, Douglas"
+S28M1  ,62,A Conceptual and Computational Model of Drone Swarms Using Flocking Dynamics,"López-Flores, Marlon Michael; CHAGAS, FABIO; Ferreira Rosa, Paulo Fernando"
+S28M1  ,85,Development of a digital twin for monitoring the autonomy of intelligent and connected electric vehicles,"Carmo, Mateus; Lima, Danilo; Silva, Felipe"
+S28M1  ,90,Adaptive Swarm Navigation: Dynamic Switching Between Behaviors for Congestion Avoidance in Cluttered Environments,"Germano, Laisson; Azpúrua, Héctor; Macharet, Douglas"
+S28M1  ,166,An Agentic Framework for Aerial Swarms: Integrating LLMs with the Crazyswarm2,"dos Santos Fernandes, Victor; da Costa Vangasse,  Arthur; Cunha de Araújo Pimenta, Luciano; Medeiros Freitas, Gustavo"
+S28M1  ,101,Multi-agent Perimeter Defense of Spatially Distributed Regions,"Paes, Leonardo; Santos, Cleiton; Macharet, Douglas"
+,,,
+S28M2 |  Terça - 08:30 as 10:30 - Sala 2: Vision in Robotics I                                                                                                 Chair: Luiz Marcos Gonçalves,,,
+Sessão,Paper ID,Título,Autores
+S28M2,55,Temporal Jitter Evaluation for Real-Time Vision Applications,"Souza, Vitor; Azevedo Sá, Hebert; Ferreira Rosa, Paulo Fernando"
+S29M2,83,UPI-Dataset: A Balanced UAV-Based Image Dataset for Defect and Anomaly Detection in Power Distribution Systems,"Leandro, Gabriel; Persiani Filho, Carlos Andre; Grassi Junior, Valdir; Oleskovicz, Mário; Santos Inoue, Roberto; Alves da Costa,  Arthur; Soares Gama, Gabriel; Henrique Terra, Marco"
+S29M2,129,UAV Visual Servoing for Electrical Distribution System Inspection,"Costa, Arthur; Mello, Lucas; Ribeiro, Eduardo; Persiani, Carlos; Grassi Jr., Valdir; Inoue, Roberto; Terra, Marco; Oleskovicz, Mario"
+S28M2,80,Exploiting domain knowledge for content-agnostic template matching in structured environment,"Rodrigues, Romulo; Souza, Marcelo; Moura, Davidson Robert; Varella, Jerry; Bessa, Iury; Vinente, Kenny"
+S28M2,107,Generative-Augmented Maritime Navigation Dataset: A Deep Synthetic Data Generation Framework,"Meneses, Lidia Gabrielly; Lima Dantas, Igor Matias; Bezerra, Arthur Andrade; Benaissa, Ilyes; Oliveira, Emerson Vilar; Gonzalez Clua, Esteban Walter; Distante, Cosimo; Goncalves, Luiz"
+S28M2,106,Multi-Variable Expanded Latent Space Autoencoder for Underwater Image Classification,"Dantas, Igor; Meneses, Lidia Gabrielly; Bezerra, Arthur Andrade; Oliveira, Emerson Vilar; Guerin, Joris; Gonzalez Clua, Esteban Walter; Goncalves, Luiz"
+,,,
+S28M3  |  Terça - 08:30 as 10:30 - Sala 3: Manipulators                                                                                                               Chair: Armando Alves Neto,,,
+Sessão,Paper ID,Título,Autores
+S28M3,39,Validation of Robotic Arm Gestures for Social Robots Based on Human Perception,"Raul, Paradeda; Furtado, Mateus; Souza, Anderson Abner"
+S28M3,92,Reward Shaping for Learning the Pre-Skimming Reach Phase with a Robotic Manipulator,"Rocha, Thiago; Azpúrua, Héctor; Macharet, Douglas"
+S28M3,102,Design of a Robotic Gripper with Magnetically Coupled Modular Fingers,"da Silva Cardoso, João Pedro; Krepsky, Daniel; Rincon, Leonardo Mejia"
+S28M3,190,Constrained Task-Space Control of a UR5 Manipulator Using CBF–QP,"Sousa, Cayo Fábio; Neto, Armando; Gonçalves, Vinicius"
+S28M3,189,Foundations of Vision Language Action Models for Generalist Robotic Manipulation,"Dorneles, Gabriel; Kappel, Kristofer; Guerra, Rodrigo; Drews-Jr, Paulo"
+,,,
+"S28E1|  Terça - 15:40 as 17:00 - Sala 1: Multi-robot Systems II, Learning                                                                                        Chair: Tiago Nascimento",,,
+Sessão,Paper ID,Título,Autores
+S28E1,89,Dynamic Coalition Formation for Probabilistic Perimeter Defense with Homogeneous Defenders,"Santos, Cleiton; Macharet, Douglas"
+S28E1,156,Graph Connectivity Maintenance for Multi-Robots Systems under Visual Occlusion Constraints via CBFs,"Sa, Victor; Vangasse, Arthur; Macharet, Douglas; Pimenta, Luciano; Gonçalves, Vinicius; Freitas, Gustavo"
+S28E1,31,Intruders in Leader-Follower Formations: Identification and Prevention,"Fagundes-Junior, Leonardo; Brandão, Alexandre"
+S28E1,188,Deep Learning-Based Estimation of Slip and Skidding for Wheeled Robots,"Moreira, Enio; Cruz Jr, Gilmar; Freitas, Gustavo"
+,,,
+"S28E2  |  Terça - 15:40 as 17:00 - Sala 2:  Robot Modeling, Kinematics and Dynamics                                                                          Chair: Hector Azpurua",,,
+Sessão,Paper ID,Título,Autores
+S28E2,110,Software Development for Function Generation Synthesis of Six-Bar Mechanisms via Optimization,"Krepsky, Daniel; Rincon, Leonardo Mejia; Cardoso, João Pedro"
+S28E2,187,From Simulation to Hardware: Stability Control of an Underactuated Biped Robot,"Simões, Henrique; Parik-Americano, Pedro; Fischman Ekman Simões, Ivan; Yasuda, Pedro; Apaza Lazarte, Norka Karelia; Forner-Cordero, Arturo"
+S28E2,196,Modeling and Control of Wind Disturbances in a Hybrid Unmanned Aerial-Underwater Vehicle,"Schulz Bosenbecker, Vítor; Loi Brião, Stephanie; Miranda Pinheiro, Pedro; Barbosa Cunha, Mauro Andre; Luche Borba, Gabriel; Lilles Jorge Drews Junior, Paulo"
+S29E2,200,"A Review of Proportional Navigation Guidance Laws: Formulations, Variants, and Implementation Considerations","Netto, Nelson; Bearzi, Carlos; Cukla, Anselmo"
+,,,
+S28E3  |  Terça - 15:40 as 17:00 - Sala 3: Legged Robots                                                                                                                   Chair: Luiz Chaimowicz,,,
+Sessão,Paper ID,Título,Autores
+S28E3,88,Proprioceptive ContactNet: Towards Bridging the Sim-to-Real Gap in Quadrupedal Contact Estimation,"Thema, Masa; Suzano Medeiros, Vivian; I. Shimizu, Letícia; Decico Negri, Juliano; Becker, Marcelo"
+S28E3,100,Next-Best-View using Deep Reinforcement Learning with Quadruped Robots in Simulation,"Toschi, Lucas; do Carmo Alves, Matheus Aparecido; Boaventura, Thiago"
+S28E3,137,Learning Perception-based Quadrupedal Locomotion on Highly Inclined Industrial Staircases,"Shimizu, Letícia; do Carmo Alves, Matheus Aparecido; Negri, Juliano; Bermudez, Gabriel; Becker, Marcelo"
+S28E3,193,"Deep Reinforcement Learning for Quadruped Locomotion in Genesis: A Comparative Study of PPO, SAC, and TD3 in Irregular Terrains","Lemos de Lima, Bruno; Santos da Silva, Rodrigo; Maia de Menezes, João Guilherme; Chaimowicz, Luiz"
+,,,
+CROS 2026 — Programação Técnica — Quarta-Feira 29/04/26,,,
+"S29M1 |  Quarta - 08:30 as 10:30 - Sala 1: Mobile Robotics: Navigation, Localization and Control                                                Chair: Gustavo Freitas",,,
+Sessão,Paper ID,Título,Autores
+S29M1,140,Control and Simulation of a Line-Follower Robot,"Henrique Martins Pereira, Jourdan; Rodrigues Lima, Rogério; Medeiros Freitas, Gustavo"
+S29M1,123,Gain-Scheduled Control for Trajectory Tracking of a Two-Wheeled Balancing Mobile Robot,"de Oliveira, Gustavo; Medeiros , Vivian; Becker, Marcelo"
+S29M1,125,"Improving Indoor Mobile Robot Localization Using integrated EKF-SLAM, AMCL and ArUco Fiducial Markers","Luna, Fernanda; Caldas, Kenny; Campos, Leandro; Teixeira, Kelen; Pazelli, Tatiana; Inoue, Roberto"
+S29M1,143,Context-Aware Semantic Navigation: A Fuzzy Logic Costmap Fusion Approach for ROS2,"Alves, Tiago; Chaimowicz, Luiz"
+S29M1,173,Transformer-based Decision-Making using Segmented Bird’s Eye View Images and Deep Reinforcement Learning,"Huaman Reyna, Ana; Pachêco Gomes, Iago; Gustierrez Neves, Vinicius; Wolf, Denis Fernando"
+S30M1,191,A Vector Field–Based Path-Following Approach for Ackermann-Steered Vehicles,"H. V. Sousa, Leandro; R. A. Honorato, Christyan; J. R. Freitas, Elias; C. A. Pimenta, Luciano"
+,,,
+S29M2  |   Quarta - 08:30 as 10:30 - Sala 2:  Vision in Robotics II                                                                                                            Chair: Iago Gomes,,,
+Sessão,Paper ID,Título,Autores
+S29M2,49,IMAGE-BASED GIMBAL CONTROL FOR OBJECT TRACKING,"Silva, Lucas"
+S29M2,70,Super-BoW Algorithm for Place Recognition in Indoor Environments,"De jesus, Kesse; Silva, Lucas Marchesan; Dutra, Gustavo Arthur; Benedetti Viana Cordova, Lucas; Silva, Thássio Gomes; Tello Gamarra, Daniel Fernando; Cukla, Anselmo Rafael; Guerra, Rodrigo Silva; Drews Júnior, Paulo Lilles; Silva, Felipe Oliveira"
+S29M2,81,Real-Time YOLO-Based Embedded System for Automated Breast Cancer Detection in Mammography,"Souto, Elon; Peña Fernández, César Augusto"
+S29M2,53,Pose estimation with ArUco markers and Kalman filter with on-line covariance adjustments for cooperative robotics,"Rabelo, Gabriel; Junqueira, Marcos; Borges, Geovany"
+S29M2,169,An Attentive Multi-Scale Approach for Semantic Segmentation,"Neves, Vinicius; Gomes, Iago; Reyna, Ana; Amaral, Wellington; Wolf, Denis"
+S29M2,207,Closed-loop grasp verification via structured multi-sensor reasoning under occlusion,"Cardoso, Sabrina; Batista, Marina; Nascimento, Felipe; Lima, Antonio; Santos, Danilo"
+,,,
+S29M3  | Quarta - 08:30 as 10:30 - Sala 3: Educational Robotics I                                                                                          Chair: Luiz Marcos Gonçalves,,,
+Sessão,Paper ID,Título,Autores
+S29M3,10,Learning2Learning: An Educational Open Source App for Data Visualization in Robotics Navigation,"Fagundes-Junior, Leonardo; Rosa Oliveira, Iure; Santos Brandão, Alexandre"
+S29M3,29,A Lightweight Open-Source Python-Based Simulator as an Educational Tool for Buoyancy Controlled Underwater Robotics,"Andrade de Oliveira, Luiz Eduardo; Oliveira, Danilo; Barbosa Cruz, Benicio; Conceição Ferreira dos Santos, Vinicius; Kamarry Alves de Sousa, Stephanie"
+S29M3,35,Development of an Educational Robotics Kit Without the Use of Screens,"Martins, Anna; Oliveira, Luiz; Fontes, Leonardo; Souza, Jonnathan; Aragão, Maria; Barbosa, Benicio"
+S29M3,66,Unplugged Computing and Educational Robotics in Early Childhood Education: Outreach Experiences with Playful and Sustainable Practices,"Nascimento Araújo Maia, Claudia; Fernandes da Silva Pequeno, Roniedson; Rodrigues de Lima Teixeira, Leonardo; Emanuele Vieira Lima, Ana; Silva Dias de Souza, Elizangela; Jesus Santos, Mabele; Terra dos Santos Garcia, Luciane; Marcos Garcia Gonçalves, Luiz"
+S29M3,171,An Active Learning Methodology for Teaching the Kalman Filter in Robotics Applications,"Moreira Lopes, Modesto Valci; de Castro Martins, Thiago; Forner-Cordero, Arturo; Lustosa Cabral, Eduardo; Machado, Izabel Fernanda; Driemeier, Larissa"
+,,,
+S29A1  |  Quarta - 13:30 as 15:10 - Sala 1: Field Robotics                                                                                                                        Chair: Hector Azpurua,,,
+Sessão,Paper ID,Título,Autores
+S29A1,67,Static Stability and Low-Level Actuation Control of a Wheel-Legged Agricultural Robot,"Fernandes, Hugo; Polanía, Edna; Santos, Artur; Gonçalves, Flávio; Albiero, Daniel; Garcia, Angel"
+S29A1,127,Challenges on Operational Procedures and Practical Experiences on Data Collection with Autonomous Sailboats,"Ferreira, André; Brandão, Diego; Guerra, Raphael; Werneck, Adriano; Freitas, Luan; Vasconcellos, Eduardo; Goncalves, Luiz; Gonzalez Clua, Esteban Walter"
+S29A1,158,Wi-Fi HaLow–Enabled Offboard Person Detection for UAV Search and Rescue,"Almeida, Thiago; Reyes, Isaac; Rezeck, Paulo; Azpurua, Hector"
+S29A1,170,Robotic Safe and Efficient Measurement of Jaw Crusher Open Side Setting,"Giffoni Lima Montalvao, Alicia; Torres, Mario; Bespaloff, Yuri; Cid, Andre; Freitas, Gustavo"
+S29A1,176,An Intelligent and Compact Fiber Optic Tether System for Mobile Robots in Confined Spaces,"Corrêa, Maurício; Pimentel, Danilo; Cid, André; Freitas, Gustavo; Azpurua, Hector"
+,,,
+"S29A2  | Quarta - 13:30 as 15:10 - Sala 2:  Autonomous Systems, Sensors and Actuators                                                                 Chair: Felipe Oliveira",,,
+Sessão,Paper ID,Título,Autores
+S29A2,181,OTA Updates for Intelligent Vehicles: Challenges for a Safe and Secure Strategy,"Pereira, Henrique; Júnior, Petrônio"
+S29A2,86,Development of an Expressive Self-Balancing Companion Robot,"Ibarra, Luis; Garcia, Caio; Vazquez, Priscila; Saraswati, Nityananda; Perico, Danilo"
+S29A2,206,Energy-Aware Waypoint Sequencing for UAV Environmental Monitoring,"Oliveira, Kassia; Dias, Lucas; Balieiro, Willy; Cukla, Anselmo; Gamarra, Fernando; Drews-Jr, Paulo; Brito, Alternei; Pio, José; Oliveira, Felipe; Silva, Vandermi"
+S29A2,132,Portable LiDAR-Based System for Plant Height Measurement with Cloud Integration,"Silva, Italo; Santana, Lucas; Cotrim, Reinaldo; Brito, Alexsandro"
+S29A2,178,LiDAR-Based Box Dimensioning in a Multi-Robot Logistics Scenario,"Moreira, Luciano; Aguiar, Geissiane; Mirante, José; Brandão, Alexandre"
+,,,
+S29A3  |  Quarta - 13:30 as 15:10 - Sala 3: Underwater Robotics                                                                                                       Chair: Rodrigo Guerra,,,
+Sessão,Paper ID,Título,Autores
+S29A3,82,Mapping and Localization in Confined Underwater Environments: A Review and Research Agenda,"Fontelles, Eduardo; Muniz, Flávio; Matubara, Lisa; Costa, Victor; Brandão, Diego; Carvalho, Fernando; Melo, Rafael"
+S29A3,154,A Low-Cost Remotely Operated Underwater Vehicle for Educational Applications,"Bonifácio Fontes , José Breno; Silva Santos, João Pedro; Aprigio Nascimento Fontes, Leonardo; Kamarry Alves de Sousa, Stephanie; Araújo Menezes, Lazaro Alberto; Cardoso Santos, Phillipe"
+S29A3,120,"Underwater Localization in Low-Texture Environments: Review, State of the Art and Perspectives","Matubara, Lisa; Muniz, Flávio; Fontelles, Eduardo; Melo, Rafael; Costa, Victor; de Carvalho, Fernando; Brandão, Diego"
+S30A3,99,"Transformer Models for Underwater 3D Reconstruction: Advances, Challenges and Trends","Costa, Victor; Carvalho, Fernando; Brandão, Diego; Fontelles, Eduardo; Melo, Rafael; Matubara, Lisa; Muniz, Flávio"
+S29A3,165,Cross domain Persistent Monitoring for Hybrid Aerial Underwater Vehicles,"Grando, Ricardo; Kich, Victor; Kolling, Alisson; de Jesus, Junior; Guerra, Rodrigo; Drews Jr, Paulo"
+,,,
+S29E1  |  Quarta - 15:40 as 17:40 - Sala 1: Motion Planning and Control                                                                                                 Chair: Valdir Grassi,,,
+Sessão,Paper ID,Título,Autores
+S29E1,32,Path-Planning and Control of a UAV for Autonomous Power-Line Inspection Missions,"Fagundes-Junior, Leonardo; Brandão, Alexandre"
+S29E1,78,Performance Analysis of the IMM-EKF Estimator for Trajectory Prediction of the Hermes 900 UAV,"Bearzi, Carlos; Ciancaglio Netto,  Nelson; Cukla, Anselmo Rafael"
+S29E1,133,Dispersive Polarized RRT (DP-RRT): A Novel Biased Sampling Strategy for Enhanced RRT Performance,"Santos Evangelista de Castro, Gil; Ádan Nunes de Carvalho, Elyson; Molina, Lucas; Oliveira Freire, Eduardo; Gilmar Nunes de Carvalho Filho, José"
+S29E1,144,Path Planning in Dynamic Environments: A Comparison of Algorithms in the RoboCup SSL,"Barbosa, Gabriel; Vivaldini, Kelen; Pazelli, Tatiana"
+S29E1,174,Influence of Mutation Operators in a Differential Evolution-based Path Planning for Non-Holonomic Robots,"J. R. Freitas , Elias; L. da Silva, Pedro; H. A. Cruz, Gustavo; H. V. Sousa, Leandro; C. A. Pimenta, Luciano"
+S29E1,184,A Comparative Benchmark of Path Planning Algorithms in Dynamic Environments,"Asghar, Hasan Ali; Guerche, Felipe Delduque; Vivaldini, Kelen Teixeira; Inoue, Roberto Santos"
+,,,
+S29E2  |  Quarta - 15:40 as 17:40 - Sala 2: Mobile Robotics and Artificial Intelligence                                                              Chair: Alexandre Brandão,,,
+Sessão,Paper ID,Título,Autores
+S29E2,48,Embodied GPT-5.1: Evidence of a World Model?,"Martins, Thiago; Spinelli, Roberto"
+S29E2,65,Use of Artificial Intelligence Techniques for Visual Localization Based on an Omnidirectional Catadioptric Camera,"Dos Santos Costa, Emily Caroline; Driemeier, Larissa; Lobo Lustosa Cabral, Eduardo"
+S29E2,94,A Tiny Recursive Multi-Head Model for Semantic Traffic Sign Recognition in Autonomous Robotics,"Castro, Matheus; Silva, Cesar; Costa, Davi; Souza, Lucas; Escalante, Felix; Filho, Leopoldo"
+S29E2,203,A WebRTC-Based Architecture for Remote Monitoring of Mobile Robots,"Muniz, Gabriel Víctor; Brandão, Alexandre Santos; da Silva, Michel Melo"
+S29E2,175,Semantic Amodal Segmentation Methods in Autonomous Vehicles Environments: A Review,"Silva, Eduardo; Brião, Stephanie; Schein, Tatiana; Garcia, Jose; Oliveira, Felipe; Drews Junior, Paulo"
+S29E2,71,Combining Entropy Metrics and Autoencoder-LSTM Models for Lightweight Data Injection Detection in ROS 2,"Gutierrez, Jorge; Dalmazo, Bruno; Drews, Paulo"
+,,,
+S29E3  |  Quarta - 15:40 as 17:40 - Sala 3: Educational Robotics II                                                                                                  Chair: Raul Paradeda,,,
+Sessão,Paper ID,Título,Autores
+S29E3,41,Miniaturized Mobile Robot for Educational  Applications in Logistics,"Grossl, César"
+S29E3,103,Unplugged Computing as an Introductory Strategy for Teaching Block-Based Programming Using the NAO Humanoid Robot,"Paradeda, Raul; da Silva, Jean; Conceição, Evelyn; Lacerda, Guilherme; Soares, Guilherme; dos Santos, Luiziane"
+S29E3,138,A 5R Robotic Master Arm Proposal for Remote Control of the KUKA KR3 R540 Industrial Robot,"Tonin Matos, Lucca; Bollmann, Lucas; Gaertner, Marianne; Youssef, Ebrahim; Mejia, Leonardo"
+S29E3,148,Development of a Robotic System for the Introduction of Space Robotics Concepts in Basic Education,"Laranjeira, Ryan; Lima, Lucas; Andrade, Cecilia; Alves, Gabriella; Paiva, Fábio; Santos, Credson; Souza, Givanaldo; Lins, Filipe"
+S29E3,50,Development of an Integrated Software System for an Othello-Playing Collaborative Robot,"Sicchieri, Icaro; D'Elia, Felipe D'Elia; Driemeier, Larissa; Martins, Thiago"
+,,,
+CROS 2026 — Programação Técnica — Quinta-Feira 30/04/26,,,
+"S30M1 |  Quinta - 08:30 as 10:30 - Sala 1: Sensor Fusion, Robot Perception, Simultaneous Localization and Mapping (SLAM)           Chair: Paulo Drews",,,
+Sessão,Paper ID,Título,Autores
+S30M1,42,Lightweight Semantic Segmentation for Feature-based Visual Odometry in Dynamic Environments,"Amorim, Thulio; Nascimento, Tiago"
+S30M1,119,Systematic Review on Sensor Fusion Techniques for Mobile Robots Using LiDAR and Complementary Sensors,"Muniz, Flavio; Matubara, Lisa; Fontelles, Eduardo; Costa, Victor; Melo, Rafael; Brandão, Diego; Carvalho, Fernando"
+S30M1,115,Impact of Windowing on LiDAR Odometry,"Andrade Júnior, Antonio; Silveira Santos Filho, José Cândido; Carlos Pires Filho, Leonardo Gurgel"
+S30M1,146,An Integrated System for Fast Mapping and Autonomous Navigation of Mobile Robots using ROS,"Cardoso de Oliveira, Levir; Araujo, Thiago; Andreazi Bertho, Gabriel; Cristiane, Kelen"
+S30M1,177,Anomaly Detection in ROS 2 Networks: A Hybrid Approach of Feature Selection and Feature Learning in Robotic Perception,"Gaspar, Jornão; Gutierrez, Jorge; Drews, Paulo; Dalmazo, Bruno"
+S30M1,183,Task-Space Trajectory Planning for Redundant Robotic Systems in Wire Arc Additive Manufacturing,"Silva, Raphael; Lizarralde, Fernando"
+,,,
+S30M2  |  Quinta - 08:30 as 10:30 - Sala 2: Human-Robot Interaction I                                                                                            Chair: Ewerton Salvador,,,
+Sessão,Paper ID,Título,Autores
+S30M2,27,Integration of Local Generative Language Models in Humanoid Robots: An Approach with the NAO Robot and DeepSeek-LLM,"Souza, Vitor"
+S30M2,69,A New Approach for Action Recognition used in Proximal Control of UAVs,"Bezerra, Lygia Águeda; de Oliveira, Ewerton; Nascimento, Tiago"
+S30M2,60,Development of a Modular Framework for Multimodal Interaction with the NAO Humanoid Robot Using Computer Vision and Natural Language Processing,"Souza, Vitor"
+S30M2,147,LIBRAS Alphabet Recognition System Based on Landmarks and Artificial Neural Networks,"da Cruz Andrade, Caio; Diaz Amado, Jose; Soares Marques, João; Lima, Crescencio; Santos Libarino, Cleia; Alves Correia Filho, Luis; Maciel de Sousa, Raphaell; Astrid, Fabricia; Marconi, Kenedy"
+S30M2,114,Eliciting Intuitive Gestures in Drones via Controlled Frustration: A Multidisciplinary Study,"dos Santos, Carlos Alberto; Santos, João Pedro; Givigi, Sidney; Freire, Eduardo; Santos, Phillipe; de Sousa, Stephanie"
+,,,
+S30M3  |  Quinta - 08:30 as 10:30 - Sala 3: Aerial / Ground / Marine Robotics                                                                                      Chair: Davi Santos,,,
+Sessão,Paper ID,Título,Autores
+S30M3,1,Multi-Time Scale Control Allocation: A DCSV-Krylov Approach for Multicopters,"PEÑA FERNÁNDEZ, CÉSAR; Li, Hangxu"
+S30M3,63,Vision-Based UAV Tracking for UAV–UGV Cooperation Using YOLOv11 and Kalman Filtering,"Pinto, Milena; Leonardo Carvalho, Lucas; Nascimento Silva, Yuri; Tuxi, Thiago"
+S30M3,130,ASV Aerocat: Cooperative Aerial–Surface System for Inspection Tasks,"Ribeiro Silva, João Marcelo; Freitas Oliveira, Vitor Eduardo; Barbosa Schettino, Vinícius; Ferreira dos Santos Neto, Accacio"
+S30M3,142,Seed dispenser for reforestation using drones,"Alkimim dos Santos, Lívia; Miranda Souza, Jeovana; Silveira dos Santos Assunção, Rubens Ian; da Silva Almeida, Ana Júlia; Gonçalves dos Santos, Leandro; Monteiro Cotrim, Reinaldo; Santos Lima, Fábio; Soares Farias, Sarah Victoria; Rodrigues Silva, Luiz Flávio"
+S30M3,182,Propulsion of Hybrid Aerial-Underwater Vehicles: Experimental Setup and Dataset,"Prado, Jardel; Miranda Pinheiro, Pedro; Pedroso-Jr, Adir; da Silva Diaz Estrada, Emanuel; Lilles Jorge Drews Junior, Paulo"
+S30M3,118,On the Challenges of Amphibious Uncrewed Surface Vehicle Simulation,"Barbosa, Alysson; Junior, Gabriel; Nascimento, Tiago; Santos, Davi"
+,,,
+"S30A1 |  Quinta - 13:30 as 15:10 - Sala 1: Robotics in Healthcare, Rehabilitation Robotics                                           Chair: Adrien Durand-Petiteville",,,
+Sessão,Paper ID,Título,Autores
+S30A1,43,Synthetic Data Set for Surgical Instrument Detection,"R. Coelho, Nathalia; Dias Leite, Julia Ellen; da Silva Júnior, Marcondes R.; Durand-Petiteville, Adrien"
+S30A1,44,Development of a prototype of a medicine blister cutter,"de Siqueira, Laura Luna; Lima Santos, Ivson; da Silva Júnior, Marcondes Ricarte; Durand-Petiteville, Adrien"
+S30A1,75,Relative Localization of a Robotic Smart Walker Based on Signal Fusion Using an Extended Information Filter,"Tavares de Oliveira, Alberto; Alsina, Pablo; Laura, Tania; Marques Ferreira da Silva, Bruno; Dantas de Medeiros, Adelardo; Valerio de Araujo, Marcio; Guilherme Wanderley, Gustavo"
+S30A1,111,A Finite-Element-Based Framework for Simulating Human-Exoskeleton Interface Mechanics,"Mazzariol, Leonardo; Siciliano, Andre; Moura, Rafael; Forner-Cordero, Arturo"
+S30A1,153,A Human-Exoskeleton Co-Learning Framework for Adaptive and Synergistic Interaction in Rehabilitation Settings,"Marafa, Nasiru; Moreira, Melkzedekue; Siqueira, Adriano"
+,,,
+"S30A2 | Quinta - 13:30 as 15:10 - Sala 2: Human-Robot Interaction II, Humanoids                                                                            Chair: Sarah Madruga",,,
+Sessão,Paper ID,Título,Autores
+S30A2,112,IMU based displacement and impact estimation for the analysis of human-exoskeleton interactions,"Araújo, Adriano; Mazzariol , Leonardo; Americano, Pedro; Forner-Cordero, Arturo"
+S30A2,122,Multi-Zone Velocity Control for Quadrupedal Gait Monitoring and Assistance in Rehabilitation,"Baptista, Rafael; Boaventura, Thiago; Lahr, Gustavo José Giardini"
+S30A2,161,Adaptive Proxemic Path Planning for Mobile Robots in Dynamic Human Environments with Predicted Motion,"de Sousa, Raphaell; Amado, Jose"
+S30A2,79,Bridging TurboWarp and NAO: API Architecture for Block-Based Humanoid Robot Programming,"Santos, Luiziane; Conceição, Evelyn; Lacerda, Guilherme; Paradeda, Raul"
+S30A2,194,Mimoso: A Humanoid Platform for Research in Locomotion and Deep Reinforcement Learning,"Castanheira, Murilo; de Oliveira, Vinícius"
+,,,
+S30A3  |  Quinta - 13:30 as 15:10 - Sala 3:  Teleoperation and Control                                                                                              Chair: Augusto Tavares,,,
+Sessão,Paper ID,Título,Autores
+S30A3,157,Real-Time Immersive Robotic Teleoperation Framework Using Virtual Reality and ROS,"Neto, Miguel; Gustavo Scolari Conceicao, Andre; Paulo Moreira, António"
+S30A3,204,Distributed Architecture for Pose Control of Differential-Drive Robots Using ESP32-S3 and MQTT,"Bastos, Bruno; Nogueira, Marcelo"
+S30A3,116,Teleoperation of Mobile Robots on a Portable Platform with 2D Augmented Reality Games Integrated into ROS 2,"almeida, Thiago; Dias, Anfranserai"
+S30A3,68,A Django-Based Web Framework for Teleoperation of Differential Robots Integrated with ROS2,"Santos, Artur; Polanía, Edna; Fernandes, Hugo; Gonçalves, Flávio; Torres, Clayton; Garcia, Angel; Albiero, Daniel"
