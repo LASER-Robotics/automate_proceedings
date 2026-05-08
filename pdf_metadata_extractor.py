@@ -1,7 +1,6 @@
 """
 Usage:
-    python script1_extrair_pdf.py
-    python script1_extrair_pdf.py --folder "path/to/pdfs" --output extracted_articles.xlsx
+    python pdf_metadata_extractor.py --folder "path/to/pdfs" --output extracted_articles.xlsx
 """
 
 import re
@@ -772,7 +771,7 @@ def main():
     )
     parser.add_argument(
         "--folder",
-        default="02 - PDF Artigos Programacao",
+        default="01 - PDF Artigos CMT",
         help="Target directory containing the PDF files.",
     )
     parser.add_argument(

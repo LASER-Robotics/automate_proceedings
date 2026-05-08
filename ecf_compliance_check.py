@@ -1,7 +1,8 @@
 """
+Input: camera_ready_report.csv from camera_ready_check.py and SearchCopyright.xlsx from IEEE eCF Management Toolkit
+
 Usage:
-    python3 ecf_compliance_check.py
-    python3 ecf_compliance_check.py --extracted extracted_articles.xlsx --copyright SearchCopyright.xlsx
+    python3 ecf_compliance_check.py --extracted camera_ready_report.csv --copyright SearchCopyright.xlsx
 """
 import argparse
 import difflib
@@ -12,6 +13,9 @@ import pandas as pd
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
+import warnings
+
+warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 
 # --- Visual Styling Configuration ---
 COLORS = {
@@ -160,7 +164,7 @@ def save_report(data, path):
     ws.title = "Compliance Report"
     
     headers = [
-        "FILE ID", "ARTICLE ID", "ACTION REQUIRED?", "PDF TITLE", "FORM TITLE", 
+        "ID", "CMT ID", "ARTICLE ID", "ACTION REQUIRED?", "PDF TITLE", "FORM TITLE", 
         "TITLE SCORE (%)", "PDF AUTHORS", "FORM AUTHORS", "AUTHOR SCORE (%)", "DIAGNOSIS"
     ]
     
@@ -177,18 +181,18 @@ def save_report(data, path):
 
     # Styling Rows
     for row_i, item in enumerate(data, 2):
-        row_vals = [item[k] for k in ["file", "id", "action", "t_pdf", "t_form", "s_title", "a_pdf", "a_form", "s_auth", "diag"]]
+        row_vals = [item[k] for k in ["p_id", "file", "id", "action", "t_pdf", "t_form", "s_title", "a_pdf", "a_form", "s_auth", "diag"]]
         for col_i, val in enumerate(row_vals, 1):
             cell = ws.cell(row=row_i, column=col_i, value=val)
             cell.font = Font(name="Arial", size=9)
             cell.alignment = Alignment(vertical="top", wrap_text=True)
             cell.border = border
             
-            if col_i == 3: # Action Column
+            if col_i == 4: # Action Column
                 bg = COLORS["OK_BG"] if val == "NO" else (COLORS["WARNING_BG"] if val == "INCONCLUSIVE" else COLORS["ERROR_BG"])
                 cell.fill = PatternFill("solid", start_color=bg)
                 cell.font = Font(name="Arial", bold=True, color=(COLORS["SUCCESS_TEXT"] if val == "NO" else COLORS["ALERT_TEXT"]))
-            elif col_i in [6, 9]: # Score Columns
+            elif col_i in [7, 10]: # Score Columns
                 score_bg = COLORS["OK_BG"] if val >= 95 else (COLORS["WARNING_BG"] if val >= 80 else COLORS["ERROR_BG"])
                 cell.fill = PatternFill("solid", start_color=score_bg)
 
@@ -200,6 +204,19 @@ def save_report(data, path):
     ws.freeze_panes = "A2"
     wb.save(path)
 
+def signed_copyright(t_pdf, copyright_xlsx):
+    df_cpy = pd.read_excel(copyright_xlsx)
+    # Match Article Titles
+    t_pdf_sm = normalize_text(t_pdf, smashed=True)
+    match_row, best_score = None, -1
+    for _, c_row in df_cpy.iterrows():
+        c_title_sm = normalize_text(str(c_row.get("ARTICLE TITLE", "")), smashed=True)
+        score = difflib.SequenceMatcher(None, t_pdf_sm, c_title_sm).ratio()
+        if score > best_score:
+            best_score, match_row = score, c_row
+    # Returns Y or N
+    return match_row.get("COPYRIGHT TYPE", "")
+
 # ---------------------------------------------------------------------------
 # Main Orchestrator
 # ---------------------------------------------------------------------------
@@ -207,9 +224,13 @@ def save_report(data, path):
 def run_pipeline(extracted_xlsx, copyright_xlsx, output_xlsx):
     df_ext = pd.read_csv(extracted_xlsx)
     df_cpy = pd.read_excel(copyright_xlsx)
+
+    count = 1
     
     results = []
     for _, row in df_ext.iterrows():
+        proceedings_id = f"{count:03d}.pdf"
+        count = count + 1
         t_pdf, a_pdf = str(row.get("title_pdf", "")), str(row.get("authors_pdf", ""))
         if not t_pdf.strip(): continue
 
@@ -230,7 +251,7 @@ def run_pipeline(extracted_xlsx, copyright_xlsx, output_xlsx):
             else: action = "NO" if (diag == "OK" and s_title >= 75) else "YES"
             
             results.append({
-                "file": row["cmt_id"], "id": match_row.get("ARTICLE IDENTIFIER", ""),
+                "p_id": proceedings_id, "file": row["cmt_id"], "id": match_row.get("ARTICLE IDENTIFIER", ""),
                 "action": action, "t_pdf": t_pdf, "t_form": match_row["ARTICLE TITLE"],
                 "s_title": s_title, "a_pdf": a_pdf, "a_form": match_row["AUTHORS"],
                 "s_auth": s_auth, "diag": diag
