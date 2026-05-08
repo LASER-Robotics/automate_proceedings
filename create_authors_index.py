@@ -30,7 +30,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen import canvas
 
-PAGE_W, PAGE_H = A4
+PAGE_W, PAGE_H = letter
 
 # Visual tuning based on the provided AuthorIndex.pdf.
 TITLE_Y = PAGE_H - 72
@@ -90,8 +90,8 @@ def load_paper_pages(papers_csv: Path) -> Dict[str, int]:
     with papers_csv.open("r", encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            title = normalize_spaces(row.get("titulo_artigo", ""))
-            page = parse_page_number(row.get("pagina_inicial", ""))
+            title = normalize_spaces(row.get("title_pdf", ""))
+            page = parse_page_number(row.get("#_first_page", ""))
             if title and page is not None:
                 mapping[normalize_key(title)] = page
 
@@ -235,7 +235,7 @@ def draw_title(c: canvas.Canvas) -> None:
 
 def render_pdf(entries: Sequence[AuthorEntry], output_pdf: Path) -> None:
     """Render the author index PDF using a fixed two-column layout."""
-    c = canvas.Canvas(str(output_pdf), pagesize=A4)
+    c = canvas.Canvas(str(output_pdf), pagesize=letter)
     c.setAuthor("OpenAI")
     c.setTitle("Author Index")
     c.setSubject("Generated from CSV files")

@@ -14,6 +14,7 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 import warnings
+import csv
 
 warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 
@@ -202,7 +203,13 @@ def save_report(data, path):
         ws.column_dimensions[get_column_letter(i)].width = w
     
     ws.freeze_panes = "A2"
-    wb.save(path)
+    wb.save(path.replace("csv","xlsx"))
+
+    sheet = wb.active
+    with open(path, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+        for row in sheet.iter_rows(values_only=True):
+            writer.writerow(row)
 
 def signed_copyright(t_pdf, copyright_xlsx):
     df_cpy = pd.read_excel(copyright_xlsx)
@@ -262,9 +269,9 @@ def run_pipeline(extracted_xlsx, copyright_xlsx, output_xlsx):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Copyright Compliance Validation Tool")
-    parser.add_argument("--extracted", default="extracted_articles.xlsx", help="Path to extracted PDF data")
+    parser.add_argument("--extracted", default="extracted_articles.csv", help="Path to extracted PDF data")
     parser.add_argument("--copyright", default="SearchCopyright.xlsx", help="Path to official copyright DB")
-    parser.add_argument("--output", default="final_compliance_report.xlsx", help="Output filename")
+    parser.add_argument("--output", default="final_compliance_report.csv", help="Output filename")
     args = parser.parse_args()
     
     run_pipeline(args.extracted, args.copyright, args.output)

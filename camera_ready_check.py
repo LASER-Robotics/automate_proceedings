@@ -20,7 +20,6 @@ from ecf_compliance_check import signed_copyright
 
 count = 1
 
-
 # TODO: verificar se o autor assinou o copyrigt form
 def processar(PATH, schedule):
     global count
@@ -29,7 +28,7 @@ def processar(PATH, schedule):
     files = sorted(files)
 
     csv_name = "camera_ready_report.csv"
-
+    print("Processing papers...")
     with open(csv_name, mode="w", newline="", encoding="utf-8") as f_csv:
         writer = csv.writer(f_csv)
         writer.writerow(["cmt_id", "title_pdf", "authors_pdf", "#_pages", "copyright_notice", "ecf_status", "ieee_compliace"])
@@ -51,9 +50,9 @@ def processar(PATH, schedule):
 
             writer.writerow([f, extrator["pdf_title"], extrator["pdf_authors"], pages, text_found, copyright_confirmation, ieee_complance_check])
             
-    print(f"OUTPUT: {csv_name}")
+    print(f"Done. See {csv_name}")
 
-def processar_sorted(PATH, schedule):
+def processar_sorted(PATH, schedule, COPYRIGHT):
     db = pd.read_excel(schedule)
     db = db.values.tolist()
     global count
@@ -66,7 +65,7 @@ def processar_sorted(PATH, schedule):
 
     with open(csv_name, mode="w", newline="", encoding="utf-8") as f_csv:
         writer = csv.writer(f_csv)
-        writer.writerow(["proceedings_id", "cmt_id", "title_pdf", "authors_pdf", "#_first_page", "#_last_page"])
+        writer.writerow(["proceedings_id", "cmt_id", "title_pdf", "authors_pdf", "#_pages", "#_first_page", "#_last_page"])
 
         for idx, f in enumerate(db, start=1):
             name = f"{f[0]:03d}.pdf"
@@ -83,9 +82,10 @@ def processar_sorted(PATH, schedule):
             count += pages
             pagina_final = count - 1
 
-            writer.writerow([f"{idx:03d}.pdf", name, extrator["pdf_title"], extrator["pdf_authors"], pagina_inicial, pagina_final])
+            writer.writerow([f"{idx:03d}.pdf", name, extrator["pdf_title"], extrator["pdf_authors"], pages, pagina_inicial, pagina_final])
 
-    run_pipeline("sorted_pdfs.csv", "SearchCopyright.xlsx", "final_compliance_report.xlsx")
+    output_file_name = "final_compliance_report.csv"
+    run_pipeline(csv_name, COPYRIGHT, output_file_name)
             
     print(f"Done. See {csv_name}")
 
@@ -96,4 +96,3 @@ if __name__ == "__main__":
     parser.add_argument("--schedule", default="./artigos_programacao.xlsx", help="Path to the folder with the Camera-Ready Files Named 001.pdf, 002.pdf, etc")
     args = parser.parse_args()
     processar(args.path + "/", args.copyright)
-    # processar_sorted(args.path + "/", args.schedule)
