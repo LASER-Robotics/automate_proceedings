@@ -1,6 +1,6 @@
 # automate_ieee_proceedings
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This repo contains a bundle of resources for preparing the proceedings of an IEEE conference, specifically the Brazilian Conference on Robotics (CROS). The scripts provide utilities to process the camera-ready pdf files, like:
@@ -53,6 +53,7 @@ You can contribute to this project by detecting bugs, proposing (issues) or impl
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/davihdsantos"><img src="https://avatars.githubusercontent.com/u/2212793?v=4?s=100" width="100px;" alt="Davi Santos"/><br /><sub><b>Davi Santos</b></sub></a><br /><a href="#projectManagement-davihdsantos" title="Project Management">📆</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/alyssonm0"><img src="https://avatars.githubusercontent.com/u/143957076?v=4?s=100" width="100px;" alt="Alysson Martim"/><br /><sub><b>Alysson Martim</b></sub></a><br /><a href="https://github.com/LASER-Robotics/automate_ieee_proceedings/commits?author=alyssonm0" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
