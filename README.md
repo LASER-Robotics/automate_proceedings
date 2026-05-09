@@ -1,7 +1,4 @@
 # automate_ieee_proceedings
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This repo contains a bundle of resources for preparing the proceedings of an IEEE conference, specifically the Brazilian Conference on Robotics (CROS). The scripts provide utilities to process the camera-ready pdf files, like:
 
