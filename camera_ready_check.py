@@ -1,8 +1,6 @@
 """
-Input: Path to a folder with all the pdfs named named with 3 digit number ex: 007.pdf, 092.pdf, etc
-
 Usage:
-    python3 camera_ready_check.py --path camera_ready_folder_path
+    python3 camera_ready_check.py
 """
 
 # Imports

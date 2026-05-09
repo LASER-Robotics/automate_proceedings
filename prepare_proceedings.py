@@ -1,3 +1,8 @@
+"""
+Usage:
+    python3 prepare_proceedings.py
+"""
+
 # Imports
 import csv
 from PyPDF2 import PdfReader, PdfWriter

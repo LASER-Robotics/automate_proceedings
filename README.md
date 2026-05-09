@@ -1,13 +1,14 @@
-# automate_proceedings (CROS)
+# automate_ieee_proceedings
 
-This repo contains a bundle of resources for preparing the proceedings of an IEEE conference. The scripts provide utilities to process the pdf files, like:
+This repo contains a bundle of resources for preparing the proceedings of an IEEE conference, specifically the Brazilian Conference on Robotics (CROS). The scripts provide utilities to process the camera-ready pdf files, like:
 
-- get number of pages
-- check copyright notice
-- check IEEE Express compliance
 - get title and authors from pdf
+- get number of pages
+- check if the pdf template is IEEE RAS
+- check copyright notice in the first page
+- check if the signed copyright form have the correct title and authors
+- check IEEE eXpress compliance
 - sort the papers according to the conference presentation schedule
-- check if the authors signed the copyright with the correct title and authors
 - add number to pages
 - create table of contents and author index
 
@@ -21,24 +22,22 @@ This repo contains a bundle of resources for preparing the proceedings of an IEE
 
 The scripts uses thee inputs:
 
-- a folder with the camera-ready pdfs named by ID with three digits (i.e 001.pdf, 002.pdf, etc)
-- the **SearchCopyright.xlsx** log file from [IEEE eCF Management Toolkit](https://ecopyright.ieee.org/toolkit/landing)
-- a csv with all the ID and title in order of presentation, given by the program chair
+- A folder `input_data/camera_ready_papers` with the camera-ready pdfs named by ID with three digits (i.e 007.pdf, 069.pdf, 106.pdf, etc)
+- The `input_data/SearchCopyright.xlsx` log file from [IEEE eCF Management Toolkit](https://ecopyright.ieee.org/toolkit/landing)
+- A csv `input_data/sessions.csv` with all the papers that were presented at the conference (remove no show), with the ID, title and session names, given by the program chair. See folder input_data for an example.
 
-  | Script | Description | Input/Output |
-  | :--- | :--- | :--- |
-  | `camera_ready_check.py` | This script process every pdf and returns a csv with: paper title, number of pages, initial page number, last page number, copyrigt notice in the first page (true/false), ieee express compliance and if it uses the conference template  | `In: folder path; Out: ` |
+Run the following scripts:
 
-## Compliance Check
+  | Script | Description |
+  | :--- | :--- |
+  | `camera_ready_check.py` | Process every pdf in the folder `input_data/camera_ready_papers` and returns a csv with: paper title and authors extracted from pdf, number of pages, copyrigt notice in the first page (true/false), ecf status (signed the copyright form) and if the pdf is IEEE eXpress compliant. The script creates another xlsx file that checks for RAS IEEE template.  |
+  | `sort_pdfs_schedule.py` | Organize the camera-ready pdfs according to the conference sessions schedule, so the pdfs are sorted by order of presentation in folder `pdfs_sorted`. Creates a `reports/final_compliance_report.xlsx` that indicates if the pdf title and authors are different from the ones signed in the copyright form. |
+  | `prepare_proceedings.py` | Number pages of the sorted pdfs and creates a table of contents and an author index. The results are stored in folder `numbered_pages`. These are the files used to create the packing list. |
 
-**Install dependencies**:
+## How to start an IEEE conference
 
-```
-pip install pypdf
-```
+This whole process starts with an [IEEE Conference Application](https://conferences.ieee.org/application/home).
 
-**Run**:
+## How to contribute
 
-```
-python3 compliance_check.py /path/to/pdf/directory
-```
+You can contribute to this project by detecting bugs, proposing (issues) or implementing (pull requests) additional features, and by documenting the conference publication process.

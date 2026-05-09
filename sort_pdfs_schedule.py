@@ -1,3 +1,8 @@
+"""
+Usage:
+    python3 sort_pdfs_schedule.py
+"""
+
 # Imports
 import argparse
 import pandas as pd
