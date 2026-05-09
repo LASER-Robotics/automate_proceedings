@@ -18,7 +18,7 @@ Examples:
   'José da Silva Barbosa'→  'Barbosa, José S.'
 
 Usage:
-    python authors.py <final_compliance.csv> <output.csv>
+    python3 authors.py <final_compliance_report.csv> <output.csv>
 """
 
 from __future__ import annotations
@@ -29,6 +29,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Set
+import argparse
 
 
 # Lowercase connective particles that are dropped from the middle of a name.
@@ -184,13 +185,15 @@ def build_author_index(compliance_path: Path) -> Dict[str, List[str]]:
 # Entry point
 # ---------------------------------------------------------------------------
 
-def main(argv: Sequence[str]) -> int:
-    if len(argv) != 3:
-        print(f"Usage: {Path(argv[0]).name} <final_compliance.csv> <output.csv>")
-        return 1
+def main() -> int:
+    output_folder = "./reports/"
+    parser = argparse.ArgumentParser(description="Build an author index from a compliance CSV.")
+    parser.add_argument("--compliance_report", default="final_compliance_report.csv", help="Name of the compliance csv from sort_pdf_schedule.py")
+    parser.add_argument("--output", default="authors.csv", help="Name of the output csv file")
+    args = parser.parse_args()
 
-    compliance_path = Path(argv[1]).expanduser().resolve()
-    output_path     = Path(argv[2]).expanduser().resolve()
+    compliance_path = Path(output_folder + args.compliance_report)
+    output_path     = Path(output_folder + args.output)
 
     if not compliance_path.is_file():
         print(f"Error: file not found: {compliance_path}")
@@ -213,6 +216,5 @@ def main(argv: Sequence[str]) -> int:
     print(f"Done. Output written to: {output_path}")
     return 0
 
-
 if __name__ == "__main__":
-    raise SystemExit(main(sys.argv))
+    main()

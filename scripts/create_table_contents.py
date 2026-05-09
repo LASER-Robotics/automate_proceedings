@@ -28,6 +28,7 @@ from reportlab.lib.pagesizes import legal
 from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen import canvas
 from reportlab.lib.utils import simpleSplit
+import argparse
 
 
 # ---------------------------------------------------------------------------
@@ -229,7 +230,6 @@ def load_page_numbers(path: Path) -> Dict[int, str]:
     with path.open("r", encoding="utf-8-sig", newline="") as f:
         for row in csv.DictReader(f):
             pagina = row.get("#_first_page", "").strip()
-            print(pagina)
             try:
                 pages[int(Path(row.get("cmt_id", "")).stem)] = pagina
             except ValueError:
@@ -540,16 +540,21 @@ def render_pdf(sessions: List[SessionBlock], output_path: Path) -> None:
 # Entry point
 # ---------------------------------------------------------------------------
 
-def main(argv: Sequence[str]) -> int:
-    if len(argv) != 5:
-        print(f"Usage: {Path(argv[0]).name} "
-              "<sessions.csv> <compliance.csv> <papers_data.csv> <output.pdf>")
-        return 1
+def main() -> int:
+    output_folder = "./reports/"
+    input_folder = "./input_data/"
+    pdf_folder = "./numbered_papers/"
+    parser = argparse.ArgumentParser(description="Build an author index from a compliance CSV.")
+    parser.add_argument("--schedule", default="CROS2026_sessions.csv", help="Name of the compliance csv from sort_pdf_schedule.py")
+    parser.add_argument("--compliance", default="final_compliance_report.csv", help="Name of the compliance csv from sort_pdf_schedule.py")
+    parser.add_argument("--sorted_pdfs", default="sorted_pdfs.csv", help="Name of the compliance csv from sort_pdf_schedule.py")
+    parser.add_argument("--output", default="TableContents.pdf", help="Name of the output csv file")
+    args = parser.parse_args()
 
-    sessions_path   = Path(argv[1]).expanduser().resolve()
-    compliance_path = Path(argv[2]).expanduser().resolve()
-    results_path    = Path(argv[3]).expanduser().resolve()
-    output_path     = Path(argv[4]).expanduser().resolve()
+    sessions_path   = Path(input_folder + args.schedule)
+    compliance_path = Path(output_folder + args.compliance)
+    results_path    = Path(output_folder + args.sorted_pdfs)
+    output_path     = Path(pdf_folder + args.output)
 
     for p in (sessions_path, compliance_path, results_path):
         if not p.is_file():
@@ -577,6 +582,7 @@ def main(argv: Sequence[str]) -> int:
     print(f"PDF written to: {output_path}")
     return 0
 
+# python create_table_contents.py <sessions.csv> <compliance.csv> <papers_data.csv> <output.pdf>
 
 if __name__ == "__main__":
-    raise SystemExit(main(sys.argv))
+    main()

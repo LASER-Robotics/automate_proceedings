@@ -626,9 +626,7 @@ def run_pipeline(pdf_folder: Path, output_xlsx: Path) -> None:
         print(f"[AVISO] Nenhum arquivo PDF encontrado em: {pdf_folder}")
         return
 
-    print(f"[INFO] Analisando {len(pdfs)} arquivo(s) PDF em '{pdf_folder}'\n")
-    print(f"{'ARQUIVO':<42}  {'STATUS':<10}  DETALHE")
-    print("-" * 100)
+    print(f"Checking {len(pdfs)} papers in '{pdf_folder}' for IEEE RAS template")
 
     records = []
     for pdf_path in pdfs:
@@ -641,52 +639,16 @@ def run_pipeline(pdf_folder: Path, output_xlsx: Path) -> None:
             else f"[AVISO] {rec.issues[0]}" if rec.status == "VALID"
             else rec.issues[0][:90] if rec.issues else "Erro desconhecido"
         )
-        print(f"{short:<42}  {rec.status:<10}  {detail}")
 
-    print("-" * 100)
     valid = sum(1 for r in records if r.status == "VALID")
-    print(f"\n[CONCLUÍDO] {valid}/{len(records)} arquivo(s) em conformidade com o formato RAS ieeeconf.")
+    print(f"{valid}/{len(records)} papers with RAS ieeeconf template.")
     save_report(records, output_xlsx)
-    print(f"[INFO] Relatório salvo em: {output_xlsx}")
+    print(f"Report stored in: {output_xlsx}")
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(
-        description=(
-            "Valida PDFs contra o template IEEE/RAS ieeeconf e extrai "
-            "título e autores dos arquivos conformes."
-        ),
-        add_help=True,
-    )
-    parser.add_argument(
-        "--folder",
-        default=None,
-        help="Pasta contendo os arquivos PDF (obrigatório).",
-    )
-    parser.add_argument(
-        "--output",
-        default="ras_format_validation.xlsx",
-        help="Nome do arquivo Excel de saída (padrão: ras_format_validation.xlsx).",
-    )
-    args = parser.parse_args()
-
-    # CHANGED: removed default folder; print usage instructions if not provided
-    if not args.folder:
-        print(
-            "\n[ERRO] Nenhuma pasta informada.\n"
-            "\nUso correto:\n"
-            "  python ras_format_extractor.py --folder <caminho_para_os_pdfs>\n"
-            "  python ras_format_extractor.py --folder <caminho_para_os_pdfs> --output <arquivo.xlsx>\n"
-            "\nExemplos:\n"
-            "  python ras_format_extractor.py --folder \"02 - PDF Artigos\"\n"
-            "  python ras_format_extractor.py --folder \"/home/user/artigos\" --output resultado.xlsx\n"
-            "\nArgumentos:\n"
-            "  --folder   Caminho da pasta com os PDFs a validar (obrigatório)\n"
-            "  --output   Nome do relatório Excel gerado (opcional, padrão: ras_format_validation.xlsx)\n"
-        )
-        sys.exit(1)
-
-    run_pipeline(Path(args.folder), Path(args.output))
+def main(folder) -> None:
+    output = "./reports/ras_format_validation.xlsx"
+    run_pipeline(Path(folder), Path(output))
 
 
 if __name__ == "__main__":

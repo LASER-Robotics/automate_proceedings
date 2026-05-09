@@ -11,14 +11,16 @@ from PyPDF2 import PdfReader
 from pathlib import Path
 import pandas as pd
 import csv
-from pdfexpress_compliance_check import check_pdf_creator
-from pdf_metadata_extractor import process_pdf
+from scripts.pdfexpress_compliance_check import check_pdf_creator
+from scripts.pdf_metadata_extractor import process_pdf
 from scripts.contagem_de_paginas import count_page
 from scripts.ieee_string_copyright import search_text
-from ecf_compliance_check import run_pipeline
-from ecf_compliance_check import signed_copyright
+from scripts.ecf_compliance_check import run_pipeline
+from scripts.ecf_compliance_check import signed_copyright
+from scripts import ras_format_validation
 
 count = 1
+output_folder = "./reports/"
 
 # TODO: verificar se o autor assinou o copyrigt form
 def processar(PATH, schedule):
@@ -27,8 +29,8 @@ def processar(PATH, schedule):
     files = [f.name for f in folder.iterdir() if f.is_file()]
     files = sorted(files)
 
-    csv_name = "camera_ready_report.csv"
-    print("Processing papers...")
+    csv_name = "./reports/camera_ready_report.csv"
+    print(f"Processing papers from {folder.resolve()}")
     with open(csv_name, mode="w", newline="", encoding="utf-8") as f_csv:
         writer = csv.writer(f_csv)
         writer.writerow(["cmt_id", "title_pdf", "authors_pdf", "#_pages", "copyright_notice", "ecf_status", "ieee_compliace"])
@@ -56,12 +58,13 @@ def processar_sorted(PATH, schedule, COPYRIGHT):
     db = pd.read_excel(schedule)
     db = db.values.tolist()
     global count
+    global output_folder
 
     folder = Path(PATH)
     files = [f.name for f in folder.iterdir() if f.is_file()]
     files = sorted(files)
 
-    csv_name = "sorted_pdfs.csv"
+    csv_name = f"{output_folder}sorted_pdfs.csv"
 
     with open(csv_name, mode="w", newline="", encoding="utf-8") as f_csv:
         writer = csv.writer(f_csv)
@@ -84,15 +87,18 @@ def processar_sorted(PATH, schedule, COPYRIGHT):
 
             writer.writerow([f"{idx:03d}.pdf", name, extrator["pdf_title"], extrator["pdf_authors"], pages, pagina_inicial, pagina_final])
 
-    output_file_name = "final_compliance_report.csv"
+    output_file_name = "./reports/final_compliance_report.csv"
     run_pipeline(csv_name, COPYRIGHT, output_file_name)
             
     print(f"Done. See {csv_name}")
 
 if __name__ == "__main__":
+    Path("reports").mkdir(exist_ok=True)
+    input_folder = "./input_data/"
     parser = argparse.ArgumentParser(description="Camera-Ready Verification Tool")
-    parser.add_argument("--path", default="./01 - PDF Artigos CMT", help="Path to the folder with the Camera-Ready Files Named 001.pdf, 002.pdf, etc")
-    parser.add_argument("--copyright", default="./SearchCopyright.xlsx", help="Path to the file")
-    parser.add_argument("--schedule", default="./artigos_programacao.xlsx", help="Path to the folder with the Camera-Ready Files Named 001.pdf, 002.pdf, etc")
+    parser.add_argument("--path", default=f"{input_folder}01 - PDF Artigos CMT", help="Path to the folder with the Camera-Ready Files Named 001.pdf, 002.pdf, etc")
+    parser.add_argument("--copyright", default=f"{input_folder}SearchCopyright.xlsx", help="Path to the file")
+    parser.add_argument("--schedule", default=f"{input_folder}artigos_programacao.xlsx", help="Path to the folder with the Camera-Ready Files Named 001.pdf, 002.pdf, etc")
     args = parser.parse_args()
     processar(args.path + "/", args.copyright)
+    ras_format_validation.main(args.path + "/")

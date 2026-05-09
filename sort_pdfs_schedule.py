@@ -38,9 +38,10 @@ def copy_article(PATH, SCHEDULE, COPYRIGHT):
 
 
 if __name__ == "__main__":
+    input_folder = "./input_data/"
     parser = argparse.ArgumentParser(description="Copyright Compliance Validation Tool")
-    parser.add_argument("--schedule", default="artigos_programacao.xlsx", help="Path to extracted PDF data")
-    parser.add_argument("--path", default="./01 - PDF Artigos CMT", help="Path to official copyright DB")
-    parser.add_argument("--copyright", default="./SearchCopyright.xlsx", help="Copyright log")
+    parser.add_argument("--schedule", default=f"{input_folder}artigos_programacao.xlsx", help="Path to extracted PDF data")
+    parser.add_argument("--path", default=f"{input_folder}01 - PDF Artigos CMT", help="Path to official copyright DB")
+    parser.add_argument("--copyright", default=f"{input_folder}SearchCopyright.xlsx", help="Copyright log")
     args = parser.parse_args()
     copy_article(args.path + "/", args.schedule, args.copyright)

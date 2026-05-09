@@ -268,10 +268,12 @@ def run_pipeline(extracted_xlsx, copyright_xlsx, output_xlsx):
     print(f"Compliance analysis completed successfully: {output_xlsx}")
 
 if __name__ == "__main__":
+    output_folder = "./reports/"
+    input_folder = "./input_data/"
     parser = argparse.ArgumentParser(description="Copyright Compliance Validation Tool")
     parser.add_argument("--extracted", default="extracted_articles.csv", help="Path to extracted PDF data")
     parser.add_argument("--copyright", default="SearchCopyright.xlsx", help="Path to official copyright DB")
     parser.add_argument("--output", default="final_compliance_report.csv", help="Output filename")
     args = parser.parse_args()
     
-    run_pipeline(args.extracted, args.copyright, args.output)
+    run_pipeline(output_folder + args.extracted, input_folder + args.copyright, output_folder + args.output)

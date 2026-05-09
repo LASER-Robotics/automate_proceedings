@@ -25,8 +25,9 @@ from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, Iterable, List, Sequence, Tuple
+import argparse
 
-from reportlab.lib.pagesizes import A4
+from reportlab.lib.pagesizes import A4, letter
 from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen import canvas
 
@@ -294,15 +295,18 @@ def render_pdf(entries: Sequence[AuthorEntry], output_pdf: Path) -> None:
     c.save()
 
 
-def main(argv: Sequence[str]) -> int:
-    """Command-line entry point."""
-    if len(argv) != 4:
-        print(f"Usage: {Path(argv[0]).name} <authors.csv> <papers_data.csv> <output.pdf>")
-        return 1
+def main() -> int:
+    output_folder = "./reports/"
+    pdf_folder = "./numbered_papers/"
+    parser = argparse.ArgumentParser(description="Build an author index from a compliance CSV.")
+    parser.add_argument("--authors", default="authors.csv", help="Name of the compliance csv from sort_pdf_schedule.py")
+    parser.add_argument("--sorted_pdfs", default="sorted_pdfs.csv", help="Name of the compliance csv from sort_pdf_schedule.py")
+    parser.add_argument("--output", default="AuthorIndex.pdf", help="Name of the output csv file")
+    args = parser.parse_args()
 
-    authors_csv = Path(argv[1]).expanduser().resolve()
-    papers_csv = Path(argv[2]).expanduser().resolve()
-    output_pdf = Path(argv[3]).expanduser().resolve()
+    authors_csv = Path(output_folder + args.authors)
+    papers_csv = Path(output_folder + args.sorted_pdfs)
+    output_pdf = Path(pdf_folder + args.output)
 
     if not authors_csv.is_file():
         print(f"Error: file not found: {authors_csv}")
@@ -323,6 +327,7 @@ def main(argv: Sequence[str]) -> int:
     print(f"PDF generated at: {output_pdf}")
     return 0
 
+# python create_authors_index.py <authors.csv> <papers_data.csv> <output.pdf>
 
-if __name__ == "__main__":
-    raise SystemExit(main(sys.argv))
+if __name__ == "__main__":    
+    main()
