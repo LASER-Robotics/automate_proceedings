@@ -1,4 +1,7 @@
 # automate_ieee_proceedings
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This repo contains a bundle of resources for preparing the proceedings of an IEEE conference, specifically the Brazilian Conference on Robotics (CROS). The scripts provide utilities to process the camera-ready pdf files, like:
 
@@ -44,6 +47,20 @@ You can contribute to this project by detecting bugs, proposing (issues) or impl
 ## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/HerlanLima"><img src="https://avatars.githubusercontent.com/u/134648192?v=4?s=100" width="100px;" alt="HerlanLima"/><br /><sub><b>HerlanLima</b></sub></a><br /><a href="https://github.com/LASER-Robotics/automate_ieee_proceedings/commits?author=HerlanLima" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 
