@@ -26,6 +26,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, Iterable, List, Sequence, Tuple
 import argparse
+import pandas as pd
 
 from reportlab.lib.pagesizes import A4, letter
 from reportlab.pdfbase.pdfmetrics import stringWidth
@@ -47,7 +48,7 @@ TOP_ENTRY_Y = PAGE_H - 108
 BOTTOM_MARGIN = 56
 LINE_STEP = 18.8
 ROWS_PER_PAGE = 34
-FOOTER_PAGE_START = 591
+FOOTER_PAGE_START = 633
 DOT_CHAR = "."
 MIN_DOTS = 2
 
@@ -234,15 +235,17 @@ def draw_title(c: canvas.Canvas) -> None:
     c.drawCentredString(PAGE_W / 2, TITLE_Y, "Author Index")
 
 
-def render_pdf(entries: Sequence[AuthorEntry], output_pdf: Path) -> None:
+def render_pdf(entries: Sequence[AuthorEntry], output_pdf: Path, sorted_pdfs) -> None:
     """Render the author index PDF using a fixed two-column layout."""
     c = canvas.Canvas(str(output_pdf), pagesize=letter)
     c.setAuthor("OpenAI")
     c.setTitle("Author Index")
     c.setSubject("Generated from CSV files")
     c.setCreator("ReportLab")
+    
+    df = pd.read_csv(sorted_pdfs)    
 
-    page_number = FOOTER_PAGE_START
+    page_number = df['#_last_page'].iloc[-1] + 1
     idx = 0
     total = len(entries)
     first_page = True
@@ -306,7 +309,15 @@ def main() -> int:
 
     authors_csv = Path(output_folder + args.authors)
     papers_csv = Path(output_folder + args.sorted_pdfs)
-    output_pdf = Path(pdf_folder + args.output)
+
+    df = pd.read_csv(papers_csv)
+    page_number = df['proceedings_id'].iloc[-1]
+
+    # tst = page_number.replace(".pdf", f"_{output_pdf}")
+    autor_index_start_page = int(page_number.replace(".pdf", "")) + 1
+
+    output_pdf = Path(pdf_folder + f"{autor_index_start_page}_" +  args.output)
+    print(output_pdf)
 
     if not authors_csv.is_file():
         print(f"Error: file not found: {authors_csv}")
@@ -323,7 +334,7 @@ def main() -> int:
         print("Error: no author entries could be generated.")
         return 1
 
-    render_pdf(entries, output_pdf)
+    render_pdf(entries, output_pdf, output_folder + args.sorted_pdfs)
     print(f"PDF generated at: {output_pdf}")
     return 0
 

@@ -554,7 +554,7 @@ def main() -> int:
     sessions_path   = Path(input_folder + args.schedule)
     compliance_path = Path(output_folder + args.compliance)
     results_path    = Path(output_folder + args.sorted_pdfs)
-    output_path     = Path(pdf_folder + args.output)
+    output_path     = Path(pdf_folder + f"000_08_" + args.output)
 
     for p in (sessions_path, compliance_path, results_path):
         if not p.is_file():
