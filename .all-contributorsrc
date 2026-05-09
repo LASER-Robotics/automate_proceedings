@@ -1,11 +1,12 @@
 {
+  "projectName": "laser_usv_system",
+  "projectOwner": "LASER-Robotics",
   "files": [
     "README.md"
   ],
-  "imageSize": 100,
-  "commit": false,
   "commitType": "docs",
   "commitConvention": "angular",
+  "contributorsPerLine": 7,
   "contributors": [
     {
       "login": "davihdsantos",
@@ -17,6 +18,15 @@
       ]
     },
     {
+      "login": "gaabsjrer",
+      "name": "Gabriel Lucena",
+      "avatar_url": "https://avatars.githubusercontent.com/u/139882649?v=4",
+      "profile": "https://github.com/gaabsjrer",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
       "login": "alyssonm0",
       "name": "Alysson Martim",
       "avatar_url": "https://avatars.githubusercontent.com/u/143957076?v=4",
@@ -25,11 +35,14 @@
         "code"
       ]
     }
-  ],
-  "contributorsPerLine": 7,
-  "skipCi": true,
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "projectName": "automate_ieee_proceedings",
-  "projectOwner": "LASER-Robotics"
+    {
+      "login": "HerlanLima",
+      "name": "HerlanLima",
+      "avatar_url": "https://avatars.githubusercontent.com/u/134648192?v=4",
+      "profile": "https://github.com/HerlanLima",
+      "contributions": [
+        "code"
+      ]
+    }
+  ]
 }
