@@ -771,7 +771,7 @@ def main():
     )
     parser.add_argument(
         "--folder",
-        default="01 - PDF Artigos CMT",
+        default="camera_ready_papers",
         help="Target directory containing the PDF files.",
     )
     parser.add_argument(

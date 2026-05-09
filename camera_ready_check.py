@@ -96,7 +96,7 @@ if __name__ == "__main__":
     Path("reports").mkdir(exist_ok=True)
     input_folder = "./input_data/"
     parser = argparse.ArgumentParser(description="Camera-Ready Verification Tool")
-    parser.add_argument("--path", default=f"{input_folder}01 - PDF Artigos CMT", help="Path to the folder with the Camera-Ready Files Named 001.pdf, 002.pdf, etc")
+    parser.add_argument("--path", default=f"{input_folder}camera_ready_papers", help="Path to the folder with the Camera-Ready Files Named 001.pdf, 002.pdf, etc")
     parser.add_argument("--copyright", default=f"{input_folder}SearchCopyright.xlsx", help="Path to the file")
     parser.add_argument("--schedule", default=f"{input_folder}artigos_programacao.xlsx", help="Path to the folder with the Camera-Ready Files Named 001.pdf, 002.pdf, etc")
     args = parser.parse_args()
