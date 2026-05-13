@@ -16,7 +16,7 @@ import scripts.create_table_contents
 
 # Configs
 PATH_2 = "./pdfs_sorted/"
-PATH_3 = "./numbered_papers/"
+PATH_3 = "./proceedings_files/"
 MUMB_CSV = "./sorted_pdfs.csv"
 
 from reportlab.pdfbase.pdfmetrics import stringWidth
@@ -86,9 +86,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Numbering pages of the paper pdfs Tool")
     parser.add_argument("--sorted_folder", default="./pdfs_sorted", help="Path to the pdfs_sorted folder")
     parser.add_argument("--sorted_pdfs", default="sorted_pdfs.csv", help="Copyright log")
-    parser.add_argument("--output", default="./numbered_papers", help="Path to output folder for the numbered pdfs")
+    parser.add_argument("--output", default="./proceedings_files", help="Path to output folder for the numbered pdfs")
     args = parser.parse_args()
-    # numerate(args.sorted_folder + "/", output_folder + args.sorted_pdfs, args.output + "/")
+    numerate(args.sorted_folder + "/", output_folder + args.sorted_pdfs, args.output + "/")
     scripts.authors.main()
     scripts.create_authors_index.main()
     scripts.create_table_contents.main()
