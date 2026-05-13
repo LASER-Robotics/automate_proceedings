@@ -46,8 +46,20 @@ You can contribute to this project by detecting bugs, proposing (issues) or impl
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/davihdsantos"><img src="https://avatars.githubusercontent.com/u/2212793?v=4?s=100" width="100px;" alt="Davi Santos"/><br /><sub><b>Davi Santos</b></sub></a><br /><a href="#projectManagement-davihdsantos" title="Project Management">📆</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/gaabsjrer"><img src="https://avatars.githubusercontent.com/u/139882649?v=4?s=100" width="100px;" alt="Gabriel Lucena"/><br /><sub><b>Gabriel Lucena</b></sub></a><br /><a href="#code-gaabsjrer" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/alyssonm0"><img src="https://avatars.githubusercontent.com/u/143957076?v=4?s=100" width="100px;" alt="Alysson Martim"/><br /><sub><b>Alysson Martim</b></sub></a><br /><a href="#code-alyssonm0" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/HerlanLima"><img src="https://avatars.githubusercontent.com/u/134648192?v=4?s=100" width="100px;" alt="HerlanLima"/><br /><sub><b>HerlanLima</b></sub></a><br /><a href="#code-HerlanLima" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+---
