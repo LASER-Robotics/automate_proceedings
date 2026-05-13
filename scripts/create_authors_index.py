@@ -300,7 +300,7 @@ def render_pdf(entries: Sequence[AuthorEntry], output_pdf: Path, sorted_pdfs) ->
 
 def main() -> int:
     output_folder = "./reports/"
-    pdf_folder = "./numbered_papers/"
+    pdf_folder = "./proceedings_files/"
     parser = argparse.ArgumentParser(description="Build an author index from a compliance CSV.")
     parser.add_argument("--authors", default="authors.csv", help="Name of the compliance csv from sort_pdf_schedule.py")
     parser.add_argument("--sorted_pdfs", default="sorted_pdfs.csv", help="Name of the compliance csv from sort_pdf_schedule.py")

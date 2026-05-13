@@ -543,7 +543,7 @@ def render_pdf(sessions: List[SessionBlock], output_path: Path) -> None:
 def main() -> int:
     output_folder = "./reports/"
     input_folder = "./input_data/"
-    pdf_folder = "./numbered_papers/"
+    pdf_folder = "./proceedings_files/"
     parser = argparse.ArgumentParser(description="Build an author index from a compliance CSV.")
     parser.add_argument("--schedule", default="CROS2026_sessions.csv", help="Name of the compliance csv from sort_pdf_schedule.py")
     parser.add_argument("--compliance", default="final_compliance_report.csv", help="Name of the compliance csv from sort_pdf_schedule.py")
